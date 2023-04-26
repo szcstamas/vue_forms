@@ -9,53 +9,61 @@
             label="Select a category"
         />
   
-        <h3>Name & describe your event</h3>
+        <fieldset>
+          <legend>Name & describe your event</legend>
+          <BaseInput
+              v-model="event.title"
+              label="Title"
+              type="text"
+              error="This input has an error."
+          />
+  
+          <BaseInput
+              v-model="event.description"
+              label="Description"
+              type="text"
+          />
+        </fieldset>
+  
+        <fieldset>
+          <legend>Where is your event?</legend>
+                  <BaseInput
+                      v-model="event.location"
+                      label="Location"
+                      type="text"
+                  />
+        </fieldset>
         
-        <BaseInput
-            v-model="event.title"
-            label="Title"
-            type="text"
-        />
+        <fieldset>
+          <legend>Pets</legend>
+          <p>Are pets allowed?</p>
+          <div>
+            <!-- base-radio comp here -->
+            <BaseRadioGroup
+                  v-model="event.pets"
+                  name="pets"
+                  :options="petOptions"
+              />
+          </div>
+        </fieldset>
 
-        <BaseInput
-            v-model="event.description"
-            label="Description"
-            type="text"
-        />
-  
-        <h3>Where is your event?</h3>
+        <fieldset>
+          <legend>Extras</legend>
+          <!-- base-checkbox comp -->
+          <div>
+              <BaseCheckbox
+              v-model="event.extras.catering"
+              label="Catering"
+              />
+          </div>
 
-        <BaseInput
-            v-model="event.location"
-            label="Location"
-            type="text"
-        />
-  
-        <h3>Are pets allowed?</h3>
-        <div>
-          <!-- base-radio comp here -->
-          <BaseRadioGroup
-                v-model="event.pets"
-                name="pets"
-                :options="petOptions"
-            />
-        </div>
-  
-        <h3>Extras</h3>
-        <!-- base-checkbox comp -->
-        <div>
-            <BaseCheckbox
-            v-model="event.extras.catering"
-            label="Catering"
-            />
-        </div>
-
-        <div>
-            <BaseCheckbox
-            v-model="event.extras.music"
-            label="Music"
-            />
-        </div>
+          <div>
+              <BaseCheckbox
+              v-model="event.extras.music"
+              label="Music"
+              />
+          </div>
+        </fieldset>
   
         <button class="button -fill-gradient" type="submit">Submit</button>
       </form>
@@ -122,3 +130,16 @@ import BaseSelect from '../components/BaseSelect.vue';
     }
   }
 </script>
+
+<style lang="css">
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}  
+legend {
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 20px;
+}
+</style>

@@ -1,0 +1,5 @@
+1. Always specify type in your input element.
+2. Use fieldset to separate different forms and use legend for the headlines (for accessibility).
+3. Always use labels referring to input IDs.
+4. Never disable submit button (with disabled attribute) - make sure that screen readers see your disabled button.
+    - use error messages instead: if something is wrong or invalid, throw error messages for the user to notify him
